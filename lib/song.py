@@ -11,21 +11,19 @@ class Song:
         self.artist = artist
         self.genre = genre
         
-        self.__class__.songs.append(name)
-        self.__class__.genres.append(genre)
-        self.__class__.artists.append(artist)
+        self.add_song(name)
+        self.add_genre(genre)
+        self.add_artist(artist)
 
-        self.__class__.artist_count[artist] = self.__class__.artist_count[artist] + 1 if self.__class__.artist_count.get(artist) else 1
-        self.__class__.genre_count[genre] = self.__class__.genre_count[genre] + 1 if self.__class__.genre_count.get(genre) else 1
+
+    def add_song(self, song):
+        self.__class__.songs.append(song)
         self.__class__.count = self.__class__.count + 1
     
-    # @classmethod
-    # def artist_count(cl):
-    #     return {artist for artist in cl.artists }
+    def add_genre(self, genre):
+        self.__class__.genres.append(genre)
+        self.__class__.genre_count[genre] = self.__class__.genre_count[genre] + 1 if self.__class__.genre_count.get(genre) else 1
     
-    # @classmethod 
-    # def genre_count(cl):
-    #     return cl.genres
-
-# Song("Sara Smile", "Hall and Oates", "Pop")
-# import ipdb; ipdb.set_trace()
+    def add_artist(self, artist):
+        self.__class__.artists.append(artist)
+        self.__class__.artist_count[artist] = self.__class__.artist_count[artist] + 1 if self.__class__.artist_count.get(artist) else 1
