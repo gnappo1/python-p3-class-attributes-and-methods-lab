@@ -1,7 +1,7 @@
 class Song:
     count = 0
     genres = []
-    artists = []
+    artists = set()
     genre_count = {}
     artist_count = {}
 
@@ -16,10 +16,6 @@ class Song:
     @classmethod
     def add_to_genres(cls, genre):
         cls.genre_count[genre] = cls.genre_count.get(genre, 0) + 1
-        # if genre in cls.genre_count:
-        #     cls.genre_count[genre] += 1
-        # else:
-        #     cls.genre_count[genre] = 1
         if genre not in cls.genres:
             cls.genres.append(genre)
 
@@ -30,8 +26,7 @@ class Song:
         #     cls.artist_count[artist] += 1
         # else:
         #     cls.artist_count[artist] = 1
-        if artist not in cls.artists:
-            cls.artists.append(artist)
+        cls.artists.add(artist)
 
     @classmethod
     def add_song_to_count(cls):
